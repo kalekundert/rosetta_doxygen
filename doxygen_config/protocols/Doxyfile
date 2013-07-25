@@ -1,0 +1,16 @@
+PROJECT_NAME            = "Rosetta Protocols"
+
+HTML_OUTPUT             = symlinks/html/protocols
+INPUT                   = symlinks/rosetta/src/protocols
+
+EXCLUDE_SYMBOLS         = boost                                     \
+                          A
+
+SEARCHDATA_FILE         = doxygen_config/protocols/searchdata.xml
+EXTERNAL_SEARCH_ID      = protocols
+EXTRA_SEARCH_MAPPINGS   = core=../core                              \
+                          utilities=../utilities
+
+GENERATE_TAGFILE        = doxygen_config/protocols/tags
+TAGFILES                = doxygen_config/utilities/tags=../utilities        \
+                          doxygen_config/core/tags=../core 

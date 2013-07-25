@@ -1,0 +1,10 @@
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
+<os:ShortName>Rosetta</os:ShortName>
+<os:Description>Rosetta API Documentation</os:Description>
+<os:InputEncoding>UTF-8</os:InputEncoding>
+<os:Image width="16" height="16">data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAKcNAACnDQAAAAAAAAAAAAD///8A////AP///wAASgAGAFMCDP///wD///8A////AP///wD///8AAE0RSgBJCjT///8A////AP///wD///8A////AP///wD///8AAF0ANABqDtQAaRJpAGMOPwBkDRT///8AAGIYQgBeHP0AVxuX////AP///wD///8A////AP///wD///8A////AAAAAAEAhgueAIoQ/wCIEf8AgxP/AH4Y7wB7H/8AdST/AG0k1QBbGiP///8AAD4GDwAYIgX///8A////AP///wAAAJUBAADJuAAAyvEAAKz+ADBz/wBvOP8Glhv/BI8j/wCFJ/8Aeyb2AG8j6ABmH9wAYBMS////AP///wAAAKUbAACx3QMA//8XBP//AADL/wAAwv8AAOr/AADG/wI3e/8OnR//BpEl/wCHJ+QAcyQd////AAAAfQYAAKqXAACu7xAL//8PB/L/AAC5/x4S//81Jf//NSH//zIY//8AANr/AAC1/gttTv8Mnh/8BJIi0wCMIIgAAJn0AADQ/xkY//8KCOn/AAC0/zQw//82MP//Ni///zct//8rHf//BADP/xQA/v8AANf5AAOotA+oFVsAjioNAACnlQAAxPYAAN//AACx/zIx//81NP//NjT//xQR2v8PC9D/GBLi/wEAvf8SBOf/NiP//xEA/v8AAMXsAADUW////wAAAKJ4AACY/iYm//8yMv//KCj//wAArP8AAI3/IiHy/zo4//8fG+3/AACi/y4l//8tIf//HQ3//wAAsPb///8AAACV7QAA2v8LC+v/AgLB/wEBsv8wMP//HBzl/wAAk/8KCcD/FxXh/xEP2v8AAMf/IRz//wAAyPsAALKe////AAAAnFAAAJr4AwPk/wAAq/82Nv//OTn//zs7//8ZGeD/Dw/M/wAAnP8sK///AADH/wAAoukAAKlt////AP///wAAAIAWAACv+hYW//8AALv/JCT//wwMyP8PD8j/ICDr/woKwv8HB8H/FBTq/x4d//8AAKHf////AP///wD///8A////AAAAnccAAOT/AAC+/wAAnP8gIPv/AACw/wgIvv8NDcn/DAzN/wAAwf8aGv//AADI+gAAljT///8A////AP///wAAAHICAACfywAA+P8TE///AAC3/wAAsv8AAKb/AACp/wAAov8WFvz/EhL//wAAy/4AAJVK////AP///wD///8A////AAAAdAEAAKTEAADV/hoa//8KCtD/AACh/xsb6/8eHv7/AwPn/wAAv+MAAKWl////AP///wD///8A////AP///wD///8A////AAAAoTwAAK6oAAC5nwAAtWEDA72bAAC6mwAAq14AAH4B////AP///wD///8A588AAOCPAADgBAAA4AAAAMABAAAAAAAAAAAAAAAAAACAAAAAgAAAAIABAACAAwAAwAEAAMABAADgAwAA+AcAAA==</os:Image>
+<SearchForm>http://guybrush.ucsf.edu/doxygen/main/index.html</SearchForm>
+<os:Url type="text/html" method="GET" template="http://guybrush.ucsf.edu/doxygen/main/search.html">
+  <os:Param name="query" value="{searchTerms}"/>
+</os:Url>
+</SearchPlugin>

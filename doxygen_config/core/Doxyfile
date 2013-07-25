@@ -1,0 +1,17 @@
+PROJECT_NAME            = "Rosetta Core"
+
+HTML_OUTPUT             = symlinks/html/core
+INPUT                   = symlinks/rosetta/src/core
+
+EXCLUDE_SYMBOLS         = boost                     \
+                          protocols                 \
+                          ObjexxFCL                 \
+                          A
+
+SEARCHDATA_FILE         = doxygen_config/core/searchdata.xml
+EXTERNAL_SEARCH_ID      = core
+EXTRA_SEARCH_MAPPINGS   = utilities=../utilities    \
+                          protocols=../protocols
+
+GENERATE_TAGFILE        = doxygen_config/core/tags
+TAGFILES                = doxygen_config/utilities/tags=../utilities

@@ -1,0 +1,10 @@
+PROJECT_NAME            = "Rosetta Core (Sandbox)"
+
+HTML_OUTPUT             = symlinks/html/sandbox/core
+INPUT                   = doxygen_config/sandbox/core/source
+
+EXTERNAL_SEARCH_ID      = core
+EXTRA_SEARCH_MAPPINGS   = protocols=../protocols
+SEARCHDATA_FILE         = doxygen_config/sandbox/core/searchdata.xml
+
+GENERATE_TAGFILE        = doxygen_config/sandbox/core/tags

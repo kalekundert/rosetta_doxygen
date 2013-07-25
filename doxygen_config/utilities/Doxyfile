@@ -1,0 +1,26 @@
+PROJECT_NAME            = "Rosetta Utilities"
+
+HTML_OUTPUT             = symlinks/html/utilities
+INPUT                   = symlinks/rosetta/src/basic          \
+                          symlinks/rosetta/src/devel          \
+                          symlinks/rosetta/src/numeric        \
+                          symlinks/rosetta/src/platform       \
+                          symlinks/rosetta/src/utility
+
+EXCLUDE_SYMBOLS         = protocols                 \
+                          boost                     \
+                          main_job_distributor      \
+                          make_static_database      \
+                          make_templates            \
+                          zlib_stream               \
+                          ObjexxFCL                 \
+                          pathways                  \
+                          A
+
+SEARCHDATA_FILE         = doxygen_config/utilities/searchdata.xml
+EXTERNAL_SEARCH_ID      = utilities
+EXTRA_SEARCH_MAPPINGS   = core=../core              \
+                          protocols=../protocols
+
+GENERATE_TAGFILE        = doxygen_config/utilities/tags
+TAGFILES                = 
