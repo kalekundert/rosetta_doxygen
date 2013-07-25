@@ -10,6 +10,7 @@ EXTRA_SEARCH_MAPPINGS   = utilities=../utilities    \
                           core=../core              \
                           protocols=../protocols
 
+GENERATE_TAGFILE        =
 TAGFILES                = doxygen_config/utilities/tags=../utilities   \
                           doxygen_config/core/tags=../core             \
                           doxygen_config/protocols/tags=../protocols
