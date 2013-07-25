@@ -1,39 +1,20 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
-import sys, os
-import urlparse
-import xapian
-import json
+import os, urlparse, xapian, json, helpers
 
-# Shared State
-# ============
-# 1. Abbreviations dictionary
-# 2. Value number (0) for sorting.
-# 3. Path to index database.
+shortcuts = { # (fold)
+        'p': 'Pose',
+        'po': 'Pose',
+        'pos': 'Pose',
 
-abbreviations = { # (fold)
-        'class':        'A',
-        'function':     'B',
-        'struct':       'C',
-        'source':       'D',
-        'slot':         'E',
-        'signal':       'F',
-        'variable':     'G',
-        'typedef':      'H',
-        'enum':         'I',
-        'enumvalue':    'J',
-        'property':     'K',
-        'event':        'L',
-        'related':      'M',
-        'friend':       'N',
-        'define':       'O',
-        'file':         'P',
-        'namespace':    'Q',
-        'group':        'R',
-        'package':      'S',
-        'page':         'T',
-        'union':        'U',
-        'dir':          'V'}
+        'm': 'Mover',
+        'mo': 'Mover',
+        'mov': 'Mover',
+
+        'v': 'xyzVector',
+        've': 'xyzVector',
+        'vec': 'xyzVector'
+}
 
 if __name__ == '__main__':
 
@@ -46,20 +27,21 @@ if __name__ == '__main__':
     page = int(arguments.get('p', [1])[0])
     callback = arguments.get('cb', ['dummy'])[0]
 
-    database = xapian.Database('index.db')
+    database = xapian.Database(helpers.index_path)
 
     parser = xapian.QueryParser()
     parser.set_stemmer(xapian.Stem("en"))
     parser.set_stemming_strategy(parser.STEM_SOME)
 
-    for name, prefix in abbreviations.items():
+    for name, prefix in helpers.abbreviations.items():
         parser.add_prefix(name, prefix)
 
+    raw_query = shortcuts.get(raw_query, raw_query)
     query = parser.parse_query(raw_query)
 
     enquire = xapian.Enquire(database)
     enquire.set_query(query)
-    enquire.set_sort_by_value_then_relevance(0, False)
+    enquire.set_sort_by_value_then_relevance(helpers.sort_index, False)
 
     matches = enquire.get_mset(page * results, results)
     hits = matches.get_matches_estimated()

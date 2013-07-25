@@ -51,4 +51,7 @@ for library in $all_libraries; do
 done
 
 search_engine/indexer.py -o symlinks/index $search_data
-cp search_engine/search.py symlinks/index/search.py
+
+ln -sf $(readlink -f search_engine/search.py) symlinks/index
+ln -sf $(readlink -f search_engine/helpers.py) symlinks/index
+

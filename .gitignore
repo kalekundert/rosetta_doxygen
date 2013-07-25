@@ -6,3 +6,4 @@ tags
 searchdata.xml
 
 .*.sw*
+*.pyc

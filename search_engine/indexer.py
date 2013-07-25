@@ -1,15 +1,13 @@
 #!/usr/bin/env python
 
-import xml.sax
-import xapian
-import json
+import xml.sax, xapian, json, helpers
 
 class DoxygenHandler (xml.sax.handler.ContentHandler):
 
     def __init__(self, directory):
         import os
 
-        path = os.path.join(directory, 'index.db')
+        path = os.path.join(directory, helpers.index_path)
         action = xapian.DB_CREATE_OR_OVERWRITE
 
         self.database = xapian.WritableDatabase(path, action)
@@ -26,6 +24,8 @@ class DoxygenHandler (xml.sax.handler.ContentHandler):
             self.start_doc(name, attributes)
         if name == 'field':
             self.start_field(name, attributes)
+
+    startElement = start_element
 
     def start_doc(self, name, attributes):
         self.document = xapian.Document()
@@ -44,13 +44,15 @@ class DoxygenHandler (xml.sax.handler.ContentHandler):
         if name == 'field':
             self.end_field(name)
 
+    endElement = end_element
+
     def end_field(self, name):
         self.entity[self.field] = self.clean_up_content()
         self.content = ""
 
     def end_doc(self, name):
         type = self.entity['type']
-        prefix = self.abbreviate_type(type)
+        prefix = helpers.abbreviations[type]
 
         name = self.entity['name']
         keywords = self.entity['keywords']
@@ -71,10 +73,9 @@ class DoxygenHandler (xml.sax.handler.ContentHandler):
                 'url': self.entity['url'],
                 'fragments': ''}
                 
-        json_data = json.dumps(
-                data, sort_keys=True, indent=4, separators=(',', ': '))
+        json_data = json.dumps(data)
 
-        self.document.add_value(0, prefix)
+        self.document.add_value(helpers.sort_index, prefix)
         self.document.set_data(json_data)
 
         self.database.add_document(self.document)
@@ -87,36 +88,6 @@ class DoxygenHandler (xml.sax.handler.ContentHandler):
         self.content = self.content.strip()
         self.content = xml.sax.saxutils.unescape(self.content)
         return self.content
-
-    def abbreviate_type(self, type):
-        abbreviations = {
-                'class':        'A',
-                'function':     'B',
-                'struct':       'C',
-                'source':       'D',
-                'slot':         'E',
-                'signal':       'F',
-                'variable':     'G',
-                'typedef':      'H',
-                'enum':         'I',
-                'enumvalue':    'J',
-                'property':     'K',
-                'event':        'L',
-                'related':      'M',
-                'friend':       'N',
-                'define':       'O',
-                'file':         'P',
-                'namespace':    'Q',
-                'group':        'R',
-                'package':      'S',
-                'page':         'T',
-                'union':        'U',
-                'dir':          'V'}
-
-        return abbreviations[type]
-
-    startElement = start_element
-    endElement = end_element
 
 
 if __name__ == '__main__':
