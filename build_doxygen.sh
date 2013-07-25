@@ -35,10 +35,11 @@ for library in $chosen_libraries; do
     html_directory="symlinks/html/$library"
     master_config="doxygen_config/Doxyfile"
     library_config="doxygen_config/$library/Doxyfile"
+    version_config="PROJECT_NUMBER = $(cd symlinks/rosetta; git describe)"
 
     mkdir -p $html_directory
     rm -rf $html_directory/*
-    cat $master_config $library_config | doxygen -
+    (cat $master_config $library_config; echo $version_config) | doxygen -
 done
 
 # Regenerate the search index.  This includes every library, even those that 
