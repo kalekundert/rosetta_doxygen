@@ -3,21 +3,20 @@
 trap "" SIGHUP
 
 doxygen_path=$(dirname $(readlink -f $0))
-rosetta_path="$doxygen_path/rosetta"
 
-# Choose which libraries to recompile.  By default, none are chosen.  This has 
-# the effect of simply recompiling the search index.  A handful of special 
-# keywords are also accepted:
+# Choose which libraries to recompile.  A handful of special keywords (shown 
+# below) can be used to specify common sets of libraries.  By default, every 
+# library is recompiled.
 #   
-#   all: Recompile every library.
+#   none: Just recompile the search index.
 #   sandbox: Compile the sandbox projects.
 
 all_libraries="utilities core protocols main"
 
 if [ $# -eq 0 ]; then
-    chosen_libraries=""
-elif [ $1 = "all" ]; then
     chosen_libraries=$all_libraries
+elif [ $1 = "none" ]; then
+    chosen_libraries=""
 elif [ $1 = "sandbox" ]; then
     all_libraries="sandbox/core sandbox/protocols"
     chosen_libraries=$all_libraries
@@ -35,7 +34,7 @@ for library in $chosen_libraries; do
     html_directory="symlinks/html/$library"
     master_config="doxygen_config/Doxyfile"
     library_config="doxygen_config/$library/Doxyfile"
-    version_config="PROJECT_NUMBER = $(cd symlinks/rosetta; git describe)"
+    version_config="PROJECT_NUMBER = $(cd symlinks/rosetta; git rev-parse --short HEAD)"
 
     mkdir -p $html_directory
     rm -rf $html_directory/*

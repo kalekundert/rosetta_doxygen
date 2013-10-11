@@ -20,6 +20,7 @@ abbreviations = {
         'event':        'O',
         'related':      'P',
         'define':       'Q',
+        'macro':        'Q',
         'group':        'R',
         'package':      'S',
         'page':         'T',

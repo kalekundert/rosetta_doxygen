@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import os, urlparse, xapian, json, helpers
+import os, sys, urlparse, xapian, json, helpers
 
 shortcuts = { # (fold)
         'p': 'Pose',

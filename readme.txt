@@ -10,11 +10,12 @@ pseudo-library that serves to link the other three libraries together.  The
 main library contains no code, just formatted text to explain how the 
 documentation can be used.
 
-The documentation can be built by running the build_doxygen.sh command.  This 
-scripts expects that you have manually filled in the symlinks directory, which 
-should contain links to a rosetta installation, an HTML directory, and a 
-CGI-BIN directory.  Consult the readme file in the symlinks directory for more 
-information.
+The documentation can be built by running the build_doxygen.sh command.  Prior 
+to commit a2cd38, however, this script will choke on a comment in the Mersenne 
+Twister code which contains unicode.  This script also expects that you have 
+manually filled in the symlinks directory, which should contain links to a 
+rosetta installation, an HTML directory, and a CGI-BIN directory.  Consult the 
+readme file in the symlinks directory for more information.
 
 If your web server is setup to execute CGI-BIN scripts, a reasonably 
 sophisticated search engine will be installed when build_doxygen.sh is run.  
