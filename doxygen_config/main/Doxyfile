@@ -1,7 +1,8 @@
 PROJECT_NAME            = "Rosetta"
 
 HTML_OUTPUT             = symlinks/html/main
-INPUT                   = doxygen_config/main/source
+INPUT                   = doxygen_config/main/source symlinks/examples
+EXAMPLE_PATH            = symlinks/examples
 
 CREATE_SUBDIRS          = NO
 
