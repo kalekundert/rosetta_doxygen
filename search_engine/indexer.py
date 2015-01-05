@@ -52,7 +52,7 @@ class DoxygenHandler (xml.sax.handler.ContentHandler):
 
     def end_doc(self, name):
         type = self.entity['type']
-        prefix = helpers.abbreviations[type]
+        prefix = helpers.abbreviations.get(type, 'Z')
 
         name = self.entity['name']
         keywords = self.entity['keywords']

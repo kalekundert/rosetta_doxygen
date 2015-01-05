@@ -3,9 +3,9 @@ PROJECT_NAME            = "Rosetta Protocols (Sandbox)"
 HTML_OUTPUT             = symlinks/html/sandbox/protocols
 INPUT                   = doxygen_config/sandbox/protocols/source
 
+SEARCHDATA_FILE         = doxygen_config/sandbox/protocols/searchdata.xml
 EXTERNAL_SEARCH_ID      = protocols
 EXTRA_SEARCH_MAPPINGS   = core=../core
-SEARCHDATA_FILE         = doxygen_config/sandbox/protocols/searchdata.xml
 
 GENERATE_TAGFILE        = doxygen_config/sandbox/protocols/tags
 TAGFILES                = doxygen_config/sandbox/core/tags=../core

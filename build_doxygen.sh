@@ -8,6 +8,7 @@ doxygen_path=$(dirname $(readlink -f $0))
 # below) can be used to specify particular sets of libraries.  By default, 
 # every library is recompiled.
 #   
+# Special keywords:
 #   none: Just recompile the search index.
 #   sandbox: Compile the sandbox projects.
 

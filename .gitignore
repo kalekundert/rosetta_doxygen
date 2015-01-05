@@ -4,6 +4,7 @@
 
 tags
 searchdata.xml
+doxygen_sqlite3.db
 
 .*.sw*
 *.pyc
