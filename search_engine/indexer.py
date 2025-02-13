@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 
 import xml.sax, xapian, json, helpers
 
@@ -102,5 +102,5 @@ if __name__ == '__main__':
     handler = DoxygenHandler(arguments.output)
 
     for input in arguments.search_data:
-        print "Processing %s..." % input
+        print("Processing %s..." % input)
         xml.sax.parse(input, handler)

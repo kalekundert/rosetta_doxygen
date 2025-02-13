@@ -1,8 +1,8 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 
-import os, sys, urlparse, xapian, json, helpers
+import os, sys, urllib.parse, xapian, json, helpers
 
-shortcuts = { # (fold)
+shortcuts = {
         'p': 'Pose',
         'po': 'Pose',
         'pos': 'Pose',
@@ -17,10 +17,9 @@ shortcuts = { # (fold)
 }
 
 if __name__ == '__main__':
-
     try: arguments = os.environ['QUERY_STRING']
     except KeyError: arguments = sys.argv[1]
-    arguments = urlparse.parse_qs(arguments)
+    arguments = urllib.parse.parse_qs(arguments)
 
     raw_query = arguments.get('q', [''])[0]
     results = int(arguments.get('n', [20])[0])
@@ -64,6 +63,6 @@ if __name__ == '__main__':
         item = json.loads(match.document.get_data())
         response['items'].append(item)
 
-    print 'Content-Type:application/javascript;charset=utf-8\r\n'
-    print '%s(%s)' % (callback, json.dumps(response))
+    print('Content-Type:application/javascript;charset=utf-8\r\n')
+    print('%s(%s)' % (callback, json.dumps(response)))
 
